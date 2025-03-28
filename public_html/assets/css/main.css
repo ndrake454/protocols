@@ -1,0 +1,549 @@
+/**
+ * Main CSS
+ * 
+ * This file contains the main CSS styles for the public-facing pages.
+ * 
+ * CHAPTER 1: ROOT VARIABLES
+ * CHAPTER 2: GLOBAL STYLES
+ * CHAPTER 3: HEADER STYLES
+ * CHAPTER 4: FOOTER STYLES
+ * CHAPTER 5: CONTENT STYLES
+ * CHAPTER 6: PROTOCOL STYLES
+ * CHAPTER 7: RESPONSIVE STYLES
+ */
+
+/* ========================================
+   CHAPTER 1: ROOT VARIABLES
+   ======================================== */
+
+:root {
+    --primary-color: #006699;
+    --primary-gradient: linear-gradient(135deg, #006699, #004d80);
+    --modal-gradient: linear-gradient(135deg, #2a9d8f, #1d6a67);
+    --light-bg: #e6f2f8;
+    --border-color: #cccccc;
+    
+    /* Provider level colors */
+    --emr-color: #a0a0a0;
+    --emt-color: #ffdb58;
+    --emt-iv-color: #ff69b4;
+    --aemt-color: #90ee90;
+    --intermediate-color: #ffa500;
+    --paramedic-color: #87ceeb;
+}
+
+/* ========================================
+   CHAPTER 2: GLOBAL STYLES
+   ======================================== */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #004d80;
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #004d80;
+    border-color: #004d80;
+}
+
+.bg-primary {
+    background: var(--primary-gradient) !important;
+}
+
+/* ========================================
+   CHAPTER 3: HEADER STYLES
+   ======================================== */
+
+header {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* ========================================
+   CHAPTER 4: FOOTER STYLES
+   ======================================== */
+
+footer {
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ========================================
+   CHAPTER 5: CONTENT STYLES
+   ======================================== */
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* ========================================
+   CHAPTER 6: PROTOCOL STYLES
+   ======================================== */
+
+/* Protocol Sections */
+.protocol-section {
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.section-content {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Checklist Items */
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.checklist-item:hover {
+    background-color: #f0f9ff;
+    transform: translateX(3px);
+    border-left-color: var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.checklist-item.completed {
+    background-color: #f0fff0;
+    border-left-color: #4CAF50;
+}
+
+/* Custom checkbox styling */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+    flex: 1;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Info icon */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 102, 153, 0.3);
+    transition: all 0.2s ease;
+    opacity: 0.85;
+}
+
+.checklist-item:hover .info-icon {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(0, 102, 153, 0.4);
+}
+
+.info-icon:hover {
+    background-color: #0080bf;
+    transform: scale(1.15) !important;
+}
+
+/* Flowchart */
+.flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.flow-step {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.flow-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-left-color: var(--primary-color);
+}
+
+.flow-arrow {
+    height: 20px;
+    width: 20px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.flow-arrow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--primary-color);
+}
+
+.decision-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 4px solid #ff9800;
+}
+
+.decision-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.yes-no-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 450px;
+    margin-top: 5px;
+}
+
+.yes-path,
+.no-path {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.path-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Provider levels */
+.provider-levels {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.provider-level {
+    padding: 8px 15px;
+    color: #000;
+    font-weight: bold;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.provider-level.emr { background-color: var(--emr-color); }
+.provider-level.emt { background-color: var(--emt-color); }
+.provider-level.emt-iv { background-color: var(--emt-iv-color); }
+.provider-level.aemt { background-color: var(--aemt-color); }
+.provider-level.intermediate { background-color: var(--intermediate-color); }
+.provider-level.paramedic { background-color: var(--paramedic-color); }
+
+.provider-bar {
+    height: 10px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.provider-segment {
+    height: 100%;
+}
+
+.provider-segment.emr { background-color: var(--emr-color); }
+.provider-segment.emt { background-color: var(--emt-color); }
+.provider-segment.emt-iv { background-color: var(--emt-iv-color); }
+.provider-segment.aemt { background-color: var(--aemt-color); }
+.provider-segment.intermediate { background-color: var(--intermediate-color); }
+.provider-segment.paramedic { background-color: var(--paramedic-color); }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    background: var(--modal-gradient);
+    color: white;
+    padding: 20px 25px;
+    position: relative;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    padding-right: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+    padding: 25px;
+    line-height: 1.7;
+    color: #444;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.modal-body p {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 15px;
+}
+
+.modal-body p::before {
+    content: '•';
+    position: absolute;
+    left: 8px;
+    color: var(--primary-color);
+    font-size: 1.5em;
+    top: -0.2em;
+}
+
+.modal-body strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.note-disclaimer {
+    text-align: center;
+    color: #e74c3c;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    font-style: italic;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(231, 76, 60, 0.05);
+    border: 1px dashed rgba(231, 76, 60, 0.3);
+}
+
+/* ========================================
+   CHAPTER 7: RESPONSIVE STYLES
+   ======================================== */
+
+@media (max-width: 992px) {
+    .yes-no-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .yes-path,
+    .no-path {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .provider-level {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}

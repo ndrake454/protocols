@@ -1,0 +1,7 @@
+[28-Mar-2025 09:38:34 America/Denver] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ? WHERE id = ?' at line 1 in /home/customer/www/protocols.firelight.academy/public_html/includes/db.php:59
+Stack trace:
+#0 /home/customer/www/protocols.firelight.academy/public_html/includes/db.php(59): mysqli->prepare('UPDATE `provide...')
+#1 /home/customer/www/protocols.firelight.academy/public_html/includes/db.php(212): db_query('UPDATE `provide...', Array, 'sssii')
+#2 /home/customer/www/protocols.firelight.academy/public_html/admin/provider-levels/edit.php(94): db_update('provider_levels', Array, 'id = ?', Array)
+#3 {main}
+  thrown in /home/customer/www/protocols.firelight.academy/public_html/includes/db.php on line 59

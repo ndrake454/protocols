@@ -1,0 +1,440 @@
+/**
+ * Admin CSS
+ * 
+ * This file contains the CSS styles for the admin panel.
+ * 
+ * CHAPTER 1: SIDEBAR STYLES
+ * CHAPTER 2: CONTENT STYLES
+ * CHAPTER 3: FORM STYLES
+ * CHAPTER 4: TABLE STYLES
+ * CHAPTER 5: EDITOR STYLES
+ * CHAPTER 6: RESPONSIVE STYLES
+ */
+
+/* ========================================
+   CHAPTER 1: SIDEBAR STYLES
+   ======================================== */
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #343a40;
+}
+
+#sidebar .sidebar-header h3 {
+    color: #fff;
+    margin: 0;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px 20px;
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a:hover,
+#sidebar ul li.active > a {
+    color: #fff;
+    background: #0d6efd;
+}
+
+#sidebar ul li.active > a[aria-expanded="true"] {
+    color: #fff;
+    background: #0d6efd;
+}
+
+#sidebar ul ul a {
+    padding-left: 40px;
+    background: #2c3136;
+}
+
+#sidebar a[data-bs-toggle="collapse"] {
+    position: relative;
+}
+
+#sidebar .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+/* ========================================
+   CHAPTER 2: CONTENT STYLES
+   ======================================== */
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-inner {
+    flex-grow: 1;
+}
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#sidebarCollapse {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+#sidebarCollapse:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.stats-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stats-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #0d6efd;
+}
+
+.stats-value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.stats-label {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* ========================================
+   CHAPTER 3: FORM STYLES
+   ======================================== */
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.required:after {
+    content: " *";
+    color: #dc3545;
+}
+
+.section-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.block-container {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.block-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.block-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sortable-handle {
+    cursor: move;
+    color: #6c757d;
+    margin-right: 0.5rem;
+}
+
+.drag-ghost {
+    opacity: 0.5;
+    background-color: #f8f9fa;
+}
+
+.provider-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.provider-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.provider-checkbox label {
+    margin-left: 0.25rem;
+    margin-bottom: 0;
+}
+
+.color-preview {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    border: 1px solid #dee2e6;
+}
+
+/* ========================================
+   CHAPTER 4: TABLE STYLES
+   ======================================== */
+
+.table-responsive {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-top: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.table-actions a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================
+   CHAPTER 5: EDITOR STYLES
+   ======================================== */
+
+.ql-toolbar.ql-snow {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-color: #ced4da;
+}
+
+.ql-container.ql-snow {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-color: #ced4da;
+    min-height: 200px;
+}
+
+.editor-container {
+    margin-bottom: 1rem;
+}
+
+.ql-editor {
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.block-type-selector {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.block-type-selector .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 120px;
+    height: 120px;
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+}
+
+.block-type-selector .btn:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.block-type-selector .btn.active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+}
+
+.block-type-selector .btn i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.preview-container {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: #fff;
+}
+
+.preview-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   CHAPTER 6: RESPONSIVE STYLES
+   ======================================== */
+
+@media (max-width: 992px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    
+    #sidebar.active {
+        margin-left: 0;
+    }
+    
+    #content {
+        width: 100%;
+    }
+    
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .block-type-selector .btn {
+        width: 100px;
+        height: 100px;
+        padding: 0.75rem;
+    }
+    
+    .block-type-selector .btn i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .section-header .btn {
+        margin-top: 0.5rem;
+    }
+    
+    .block-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .block-actions {
+        margin-top: 0.5rem;
+    }
+}
